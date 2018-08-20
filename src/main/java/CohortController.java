@@ -66,5 +66,16 @@ public class CohortController {
             return new ModelAndView(model, "random.vtl");
 
         },velocityTemplateEngine);
+
+        get("/pair", (req, res) -> {
+            Random generator = new Random();
+            int randomIndex = generator.nextInt(cohort.getStudents().size());
+            Student name1 = cohort.getStudents().get(0);
+            Student name2 = cohort.getStudents().get(1);
+            HashMap<String, Object> model = new HashMap<>();
+            model.put("name1", name1);
+            model.put("name2", name2);
+            return new ModelAndView(model, "pair.vtl");
+        },velocityTemplateEngine);
     }
 }
