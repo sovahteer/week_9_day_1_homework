@@ -70,8 +70,9 @@ public class CohortController {
         get("/pair", (req, res) -> {
             Random generator = new Random();
             int randomIndex = generator.nextInt(cohort.getStudents().size());
+            int randomIndex2 = generator.nextInt(cohort.getStudents().size());
             Student name1 = cohort.getStudents().get(randomIndex);
-            Student name2 = cohort.getStudents().get(randomIndex);
+            Student name2 = cohort.getStudents().get(randomIndex2);
             HashMap<String, Object> model = new HashMap<>();
             model.put("name1", name1);
             model.put("name2", name2);
